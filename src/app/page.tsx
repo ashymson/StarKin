@@ -138,6 +138,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="mx-auto mt-12 max-w-5xl px-4">
+        <div className="flex flex-col gap-4 rounded-2xl border border-line bg-card p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div className="max-w-2xl">
+            <h2 className="font-display text-2xl font-semibold">Coming first to Polk County</h2>
+            <p className="mt-2 text-muted">
+              This is an early preview with sample listings. Join the waitlist to hear the moment real
+              providers near you are ready to search.
+            </p>
+          </div>
+          <Link
+            href="/waitlist"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-night px-5 font-bold text-white hover:bg-night-2"
+          >
+            Join the waitlist
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
