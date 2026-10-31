@@ -16,4 +16,5 @@ create unique index waitlist_email_key on waitlist (lower(email));
 -- The site uses the public (anon) key: it may add sign-ups but never read them.
 -- Read the list in the Supabase dashboard (Table Editor) or with the service role.
 alter table waitlist enable row level security;
+grant insert on waitlist to anon;
 create policy "anyone can join" on waitlist for insert to anon with check (true);

@@ -42,17 +42,21 @@ Next.js 16 (App Router, Cache Components), TypeScript, Tailwind CSS 4.
 - `src/lib/village.ts`: "My village" saved list.
 - `supabase/migrations/0001_init.sql`: database schema for when real data moves to Supabase.
 - `src/lib/waitlist.ts`, `src/lib/waitlist-store.ts`, `src/app/waitlist/`: waitlist validation, saving and page.
+- `docs/ROADMAP.md`: what's next, including legal checks before launch.
 
 ## Connect the waitlist to Supabase
 
-1. In a Supabase project, run `supabase/migrations/0002_waitlist.sql` (SQL Editor, or `supabase db push`).
-2. Set two environment variables (in `.env.local`, and in your host's settings when deployed):
-   ```
-   SUPABASE_URL=https://<project>.supabase.co
-   SUPABASE_ANON_KEY=<the project's anon / publishable key>
-   ```
-3. Sign-ups appear in the `waitlist` table (Table Editor). The site's key can only add rows, never read them.
+The `StarKin` Supabase project (us-east-1) already has the `waitlist` table from
+`supabase/migrations/0002_waitlist.sql`. For a new project, run that file first (SQL Editor, or `supabase db push`).
+
+Set two environment variables (in `.env.local`, and in your host's settings when deployed):
+
+```
+SUPABASE_URL=https://mvzalxwonwhmmeqaluof.supabase.co
+SUPABASE_ANON_KEY=<the project's publishable key (sb_publishable_…), from Project Settings → API Keys>
+```
+
+Sign-ups appear in the `waitlist` table (Table Editor). The site's key can only add rows, never read them.
 
 Without these variables, `npm run dev` prints each sign-up to the terminal instead of saving it, and a
-production build shows visitors a "couldn't save" message, so connect Supabase before sharing the link.
-- `docs/ROADMAP.md`: what's next, including legal checks before launch.
+production build shows visitors a "couldn't save" message, so set them before sharing the link.

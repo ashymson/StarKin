@@ -15,7 +15,8 @@ Living checklist. Check items off as they land.
 - [ ] Interview 10 parents (Florida special-needs and autism groups)
 - [ ] List every directory parents already use and what each gets wrong
 - [x] Landing page with a waitlist sign-up (`/waitlist`)
-- [ ] Connect the waitlist to a Supabase project (apply `0002_waitlist.sql`, set env vars; see README)
+- [x] Create the `StarKin` Supabase project and its `waitlist` table
+- [ ] Deploy the site with `SUPABASE_URL` and `SUPABASE_ANON_KEY` set (see README)
 
 ## Real data (one metro first)
 - [ ] Choose the launch metro

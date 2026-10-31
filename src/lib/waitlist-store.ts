@@ -28,7 +28,8 @@ export async function saveSignup(signup: WaitlistSignup): Promise<SaveResult> {
       method: "POST",
       headers: {
         apikey: key,
-        Authorization: `Bearer ${key}`,
+        // Legacy anon keys are JWTs and also go in Authorization; new sb_publishable_ keys don't.
+        ...(key.startsWith("eyJ") ? { Authorization: `Bearer ${key}` } : {}),
         "Content-Type": "application/json",
         Prefer: "return=minimal",
       },
