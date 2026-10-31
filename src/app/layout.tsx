@@ -20,6 +20,8 @@ const display = Fraunces({
 export const metadata: Metadata = {
   title: { default: `${SITE.name}: ${SITE.tagline}`, template: `%s · ${SITE.name}` },
   description: SITE.description,
+  // Prototype with sample data: keep it out of search results until launch.
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
