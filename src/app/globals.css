@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
+/* Night sky + warm paper. Text colors are AA on their backgrounds. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --night: #1a2147;
+  --night-2: #283270;
+  --paper: #fbf7ef;
+  --card: #ffffff;
+  --ink: #1d2236;
+  --muted: #555b70;
+  --line: #e6dfd0;
+  --moon: #f2c14e;
+  --moon-text: #8a5a00;
+  --star-bg: #fff4d6;
+  --sky-text: #2f3d8f;
+  --mint-bg: #e3f4ec;
+  --mint-text: #1d6a47;
+  --rose-bg: #fbe7e4;
+  --rose-text: #9c3428;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-moon: var(--moon);
+  --color-moon-text: var(--moon-text);
+  --color-star-bg: var(--star-bg);
+  --color-sky-text: var(--sky-text);
+  --color-mint-bg: var(--mint-bg);
+  --color-mint-text: var(--mint-text);
+  --color-rose-bg: var(--rose-bg);
+  --color-rose-text: var(--rose-text);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--moon);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .twinkle {
+    animation: twinkle 4s ease-in-out infinite;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
