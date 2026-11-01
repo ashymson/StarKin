@@ -49,14 +49,17 @@ Next.js 16 (App Router, Cache Components), TypeScript, Tailwind CSS 4.
 The `StarKin` Supabase project (us-east-1) already has the `waitlist` table from
 `supabase/migrations/0002_waitlist.sql`. For a new project, run that file first (SQL Editor, or `supabase db push`).
 
-Set two environment variables (in `.env.local`, and in your host's settings when deployed):
+Production builds (including Vercel previews) save to this project with no settings needed: its URL and
+publishable key are in `src/lib/waitlist-store.ts`. A publishable key is meant to be public; row-level
+security only lets it add rows, never read them.
+
+To point the site at a different project, set two environment variables (in `.env.local`, or in your
+host's settings), which override the built-in ones:
 
 ```
-SUPABASE_URL=https://mvzalxwonwhmmeqaluof.supabase.co
-SUPABASE_ANON_KEY=<the project's publishable key (sb_publishable_…), from Project Settings → API Keys>
+SUPABASE_URL=https://<project>.supabase.co
+SUPABASE_ANON_KEY=<the project's publishable key (sb_publishable_…)>
 ```
 
-Sign-ups appear in the `waitlist` table (Table Editor). The site's key can only add rows, never read them.
-
-Without these variables, `npm run dev` prints each sign-up to the terminal instead of saving it, and a
-production build shows visitors a "couldn't save" message, so set them before sharing the link.
+Sign-ups appear in the `waitlist` table (Table Editor). `npm run dev` without these variables prints each
+sign-up to the terminal instead of saving it, so local testing never touches the real list.

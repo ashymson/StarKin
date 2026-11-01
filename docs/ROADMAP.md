@@ -16,7 +16,7 @@ Living checklist. Check items off as they land.
 - [ ] List every directory parents already use and what each gets wrong
 - [x] Landing page with a waitlist sign-up (`/waitlist`)
 - [x] Create the `StarKin` Supabase project and its `waitlist` table
-- [ ] Deploy the site with `SUPABASE_URL` and `SUPABASE_ANON_KEY` set (see README)
+- [ ] Confirm a real sign-up from the deployed site lands in the `waitlist` table
 
 ## Real data (one metro first)
 - [ ] Choose the launch metro
