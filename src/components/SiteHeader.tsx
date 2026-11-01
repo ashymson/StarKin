@@ -23,6 +23,9 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <Link href="/waitlist" className="rounded-full bg-moon px-3 py-1.5 font-bold text-night hover:brightness-95">
+            Join the waitlist
+          </Link>
           <Link
             href="/my-village"
             className="rounded-full bg-white/10 px-3 py-1.5 hover:bg-white/20"

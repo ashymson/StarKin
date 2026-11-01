@@ -14,7 +14,9 @@ Living checklist. Check items off as they land.
 - [ ] Write the founder's own timeline: first concern → evaluation → diagnosis → therapies → funding → school
 - [ ] Interview 10 parents (Florida special-needs and autism groups)
 - [ ] List every directory parents already use and what each gets wrong
-- [ ] Landing page with a waitlist sign-up
+- [x] Landing page with a waitlist sign-up (`/waitlist`)
+- [x] Create the `StarKin` Supabase project and its `waitlist` table
+- [ ] Confirm a real sign-up from the deployed site lands in the `waitlist` table
 
 ## Real data (one metro first)
 - [ ] Choose the launch metro

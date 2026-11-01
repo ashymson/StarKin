@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AcceptingBadge, FundingBadges, WaitlistChip } from "@/components/Badges";
+import { WaitlistForm } from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
   title: "For providers",
@@ -44,8 +45,12 @@ export default function ForProvidersPage() {
       <div className="mt-8 rounded-2xl bg-night p-6 text-white">
         <h2 className="font-display text-2xl font-semibold">Claim your listing</h2>
         <p className="mt-2 text-white/85">
-          Provider sign-up opens soon, starting with Florida. Listings are free, and families never pay to search.
+          Provider sign-up opens soon, starting in Polk County, Florida. Join the waitlist and we’ll reach out
+          when you can claim your free listing. Families never pay to search.
         </p>
+        <div className="mt-5">
+          <WaitlistForm defaultRole="provider" />
+        </div>
       </div>
     </div>
   );
