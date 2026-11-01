@@ -54,11 +54,12 @@ publishable key are in `src/lib/waitlist-store.ts`. A publishable key is meant t
 security only lets it add rows, never read them.
 
 To point the site at a different project, set two environment variables (in `.env.local`, or in your
-host's settings), which override the built-in ones:
+host's settings), which override the built-in ones. They are deliberately not the generic
+`SUPABASE_*` names, which the Vercel–Supabase integration sets:
 
 ```
-SUPABASE_URL=https://<project>.supabase.co
-SUPABASE_ANON_KEY=<the project's publishable key (sb_publishable_…)>
+WAITLIST_SUPABASE_URL=https://<project>.supabase.co
+WAITLIST_SUPABASE_KEY=<the project's publishable key (sb_publishable_…)>
 ```
 
 Sign-ups appear in the `waitlist` table (Table Editor). `npm run dev` without these variables prints each

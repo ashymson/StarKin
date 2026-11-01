@@ -6,7 +6,8 @@ export type SaveResult = "saved" | "already-joined" | "not-configured" | "error"
 // The StarKin Supabase project. A publishable key is meant to be public: row-level
 // security only lets it add waitlist rows, never read them. Production builds (including
 // Vercel previews) fall back to these, so no host settings are needed; the
-// SUPABASE_URL / SUPABASE_ANON_KEY environment variables override them.
+// WAITLIST_SUPABASE_URL / WAITLIST_SUPABASE_KEY environment variables override them. (Not the
+// generic SUPABASE_* names: the Vercel–Supabase integration sets those, possibly for another project.)
 const STARKIN_SUPABASE = {
   url: "https://mvzalxwonwhmmeqaluof.supabase.co",
   publishableKey: "sb_publishable_xr-M-YOilM02NOdPX1hunw_eDCFZKPJ",
@@ -19,8 +20,8 @@ const STARKIN_SUPABASE = {
 export async function saveSignup(signup: WaitlistSignup): Promise<SaveResult> {
   // Local development doesn't write to the real list unless the env vars are set.
   const isProduction = process.env.NODE_ENV === "production";
-  const url = process.env.SUPABASE_URL || (isProduction ? STARKIN_SUPABASE.url : undefined);
-  const key = process.env.SUPABASE_ANON_KEY || (isProduction ? STARKIN_SUPABASE.publishableKey : undefined);
+  const url = process.env.WAITLIST_SUPABASE_URL || (isProduction ? STARKIN_SUPABASE.url : undefined);
+  const key = process.env.WAITLIST_SUPABASE_KEY || (isProduction ? STARKIN_SUPABASE.publishableKey : undefined);
 
   if (!url || !key) {
     if (process.env.NODE_ENV !== "production") {
@@ -29,7 +30,7 @@ export async function saveSignup(signup: WaitlistSignup): Promise<SaveResult> {
       console.info("[waitlist] Supabase not configured; would save:", signup);
       return "saved";
     }
-    console.error("[waitlist] SUPABASE_URL or SUPABASE_ANON_KEY is not set");
+    console.error("[waitlist] WAITLIST_SUPABASE_URL or WAITLIST_SUPABASE_KEY is not set");
     return "not-configured";
   }
 
