@@ -44,6 +44,26 @@ Next.js 16 (App Router, Cache Components), TypeScript, Tailwind CSS 4.
 - `src/lib/waitlist.ts`, `src/lib/waitlist-store.ts`, `src/app/waitlist/`: waitlist validation, saving and page.
 - `docs/ROADMAP.md`: what's next, including legal checks before launch.
 
+## Deploy a private preview (Vercel)
+
+The site builds and runs with no environment variables, so a first deploy is a few clicks:
+
+1. Go to vercel.com/new, sign in with GitHub, and import `ashymson/starkin`.
+2. Leave the defaults (Framework: Next.js, build `next build`) and click **Deploy**.
+3. Open the deployment and join the waitlist with your own email. Check that the row appears in
+   Supabase (StarKin project → Table Editor → `waitlist`). This is the roadmap's "confirm a real sign-up" check.
+
+Keeping it private:
+
+- Every page sends `noindex, nofollow` and `robots.txt` blocks all crawlers, so search engines stay away
+  even though the URL works for anyone who has it.
+- Preview deployments (each pushed branch) are behind Vercel sign-in by default
+  (Settings → Deployment Protection → Vercel Authentication).
+- To lock the production URL too, set Deployment Protection to cover all deployments, or add a password.
+  Check your Vercel plan: some of these options are paid.
+
+After that, every push to `main` redeploys production and every other branch gets its own preview URL.
+
 ## Connect the waitlist to Supabase
 
 The `StarKin` Supabase project (us-east-1) already has the `waitlist` table from
